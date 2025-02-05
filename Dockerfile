@@ -7,6 +7,8 @@ RUN useradd -m -u 1000 user
 USER user
 ENV PATH="/home/user/.local/bin:$PATH"
 
+ENV PORT = 8000
+
 WORKDIR /app
 
 COPY --chown=user . /app
@@ -15,4 +17,4 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 # redundant copy to avoid permission issues(remove if not needed)
 COPY --chown=user . /app
-CMD ["uvicorn", "app:app"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", PORT]
