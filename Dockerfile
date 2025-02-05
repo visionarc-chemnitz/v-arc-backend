@@ -11,7 +11,7 @@ WORKDIR /app
 
 COPY --chown=user . /app
 
-RUN pip install --no-cache-dir --upgrade -r requirements_new.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 # redundant copy to avoid permission issues(remove if not needed)
 COPY --chown=user . /app
