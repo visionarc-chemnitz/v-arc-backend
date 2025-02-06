@@ -466,8 +466,8 @@ class ChatService:
         bpmn_prompt = BPMN_GENERATION_PROMPT.format(context=context)
         system_prompt = SystemMessage(content=bpmn_prompt)
         bpmn_xml = self.llm.invoke(
-            system_prompt.content, model="llama-3.1-8b-instant", temperature=0.8, top_p=0.95, seed=4
-        )  # llama-3.3-70b-versatile llama3-70b-8192
+            system_prompt.content, model="llama-3.3-70b-versatile", temperature=0.5, top_p=0.95, seed=4
+        )  # llama-3.3-70b-versatile llama3-70b-8192 llama-3.1-8b-instant
         bpmn_xml = bpmn_xml.content
         
         # print("xml is ",bpmn_xml)
